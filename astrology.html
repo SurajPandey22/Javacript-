@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astrology Insights</title>
+  <style>
+  /* Background */
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    /* animated gradient */
+    background: linear-gradient(270deg, #6a11cb, #2575fc, #ff758c, #ff7eb3);
+    background-size: 800% 800%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    width: 360px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .container h1 {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  label {
+    text-align: left;
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  input:focus {
+    border-color: #ff7eb3;
+    outline: none;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 12px;
+    background: linear-gradient(90deg, #ff9966, #ff5e62);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+  }
+
+  .result {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 14px;
+    min-height: 40px;
+  }
+</style>
+
+
+
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Astrology Insights</h1>
+    <form id="astro">
+      <!-- <div class="field"> -->
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+
+      
+        <label for="surname">Surname</label>
+        <input type="text" id="surname" name="surname" required>
+      
+
+      
+        <label for="day">Day</label>
+        <input type="number" id="day" name="day" min="1" max="31" required>
+
+
+    
+        <label for="month">Month</label>
+        <input type="number" id="month" name="month" min="1" max="12" required>
+      
+
+      
+        <label for="birthYear">Birth Year</label>
+        <input type="number" id="birthYear" name="birthYear" min="1900" max="2100" required>
+      
+
+      <button type="submit">Get Insights</button>
+    </form>
+    <div class="result" id="result"></div>
+    <div id="timer" style="margin-top:10px; font-weight:bold; color:#fff;"></div>
+    </div>
+    <!-- <div class="result" id="result"></div> -->
+  
+       <script>
+        const zodiacSigns = [
+  "Aries",       // March 21 – April 19
+  "Taurus",      // April 20 – May 20
+  "Gemini",      // May 21 – June 20
+  "Cancer",      // June 21 – July 22
+  "Leo",         // July 23 – August 22
+  "Virgo",       // August 23 – September 22
+  "Libra",       // September 23 – October 22
+  "Scorpio",     // October 23 – November 21
+  "Sagittarius", // November 22 – December 21
+  "Capricorn",   // December 22 – January 19
+  "Aquarius",    // January 20 – February 18
+  "Pisces"       // February 19 – March 20
+];            
+
+      const compliments = [
+  "Your smile can brighten anyone’s day.",
+  "You have a gift for making people feel valued.",
+  "Your inner strength will guide you through challenges.",
+  "Creativity flows naturally within you.",
+  "You radiate warmth and positivity everywhere you go.",
+  "Your determination inspires those around you.",
+  "Great opportunities are on the horizon for you.",
+  "You bring peace and harmony into people’s lives.",
+  "Your confidence will open new doors of success.",
+  "Happiness surrounds you and grows each day.",
+  "Your kindness creates ripples of joy in the world.",
+  "You are stronger than you think you are.",
+  "A wonderful surprise is waiting for you soon.",
+  "Your energy attracts positivity and abundance.",
+  "People admire your wisdom and clarity.",
+  "You have the power to achieve your dreams.",
+  "Your laughter is contagious and uplifting.",
+  "Success is aligning perfectly with your efforts.",
+  "Your courage makes you unstoppable.",
+  "You light up every room you enter.",
+  "New friendships will enrich your journey soon.",
+  "Your generosity touches many hearts.",
+  "You are a source of inspiration for others.",
+  "Your talents will soon be recognized widely.",
+  "You are surrounded by love and support.",
+  "Your future is full of exciting adventures.",
+  "Peace and balance flow effortlessly into your life.",
+  "Your positive mindset brings amazing results.",
+  "Every step you take brings you closer to greatness.",
+  "You are destined for remarkable achievements.",
+  "The universe is aligning in your favor today."
+];
+          
+
+       const victimCardQuotes = [
+  "I always help others, but when I need help, no one is there.",
+  "I give my best to everyone, yet I’m taken for granted.",
+  "I listen to everyone’s problems, but nobody listens to mine.",
+  "I sacrifice so much, but people don’t value me.",
+  "I forgive quickly, but nobody forgives me.",
+  "I show kindness, yet I receive coldness in return.",
+  "I go out of my way for people, but they never do the same.",
+  "I stay loyal, but others betray me easily.",
+  "I share happiness, but get ignored when I’m sad.",
+  "I give love, but only get pain back.",
+  "I stand by others in tough times, but they vanish in mine.",
+  "I always support, but rarely get support.",
+  "I cheer people up, but nobody cheers me up.",
+  "I understand everyone, but nobody tries to understand me.",
+  "I trust people, but they misuse my trust.",
+  "I stay honest, but people still doubt me.",
+  "I care deeply, but people call me weak.",
+  "I put others first, but end up last myself.",
+  "I bring light into lives, yet sit in my own darkness.",
+  "I give everything, but feel empty inside."
+];
+
+const lifeRecommendations = [
+  "Feed a street dog or cat.",
+  "Plant a tree in your neighborhood.",
+  "Smile at a stranger and spread positivity.",
+  "Help an elderly person cross the road.",
+  "Donate old clothes to someone in need.",
+  "Spend time with your family without distractions.",
+  "Compliment someone genuinely today.",
+  "Drink enough water and stay hydrated.",
+  "Practice gratitude by writing down three things you’re thankful for.",
+  "Pick up litter and keep your surroundings clean.",
+  "Call a friend you haven’t spoken to in a while.",
+  "Cook a meal and share it with someone less fortunate.",
+  "Read at least 10 pages of a good book.",
+  "Meditate for 10 minutes to clear your mind.",
+  "Avoid gossip and speak only kind words.",
+  "Support a local small business.",
+  "Give your seat to someone in need on public transport.",
+  "Limit your screen time and spend more time outdoors.",
+  "Practice deep breathing when you feel stressed.",
+  "Share your knowledge with someone who can benefit from it.",
+  "Write a thank-you note to someone who helped you.",
+  "Practice patience in a difficult situation.",
+  "Save a small portion of your income for the future.",
+  "Learn something new today, even if small.",
+  "Say 'I love you' to the people who matter.",
+  "Offer water or food to a delivery worker.",
+  "Take a short walk in nature to refresh your mind.",
+  "Donate books to a library or school.",
+  "Be kind to yourself and avoid negative self-talk.",
+  "Do one good deed today without expecting anything in return."
+];
+const wealthPredictions = [
+  "Your financial growth will start after you turn 30, when your hard work pays off.",
+  "An unexpected opportunity in the coming 2 years will change your wealth forever.",
+  "Your determination will make you rich in your 40s, giving you stability and luxury.",
+  "A career shift in the next 5 years will bring you financial success.",
+  "Business ventures after 35 will be the main source of your wealth.",
+  "Investments made wisely in your 20s will make you wealthy in your 30s.",
+  "Your creative talents will attract prosperity in the near future.",
+  "Partnerships will lead you to riches before you reach middle age.",
+  "Hard work in silence now will bring fortune in the next decade.",
+  "Travel and international opportunities will unlock wealth for you.",
+  "Your consistent savings will make you financially free before 40.",
+  "Riches will come to you when you combine passion with persistence.",
+  "You will experience your financial peak in your late 30s.",
+  "Patience and discipline will make you wealthy over time, not overnight.",
+  "Your kindness will attract fortune through unexpected sources.",
+  "An idea you are nurturing will make you rich within 10 years.",
+  "Riches will come when you learn to invest, not just earn.",
+  "Your wealth will grow when you follow your heart, not just money.",
+  "You will achieve financial abundance when you master self-control.",
+  "The universe has aligned wealth for you after overcoming early struggles."
+];
+
+      const form=document.getElementById("astro");
+      const timerDisplay = document.getElementById("timer");
+      let timeLeft = 15; 
+
+  
+  timerDisplay.innerText = `Auto-submit in ${timeLeft} seconds...`;
+      form.addEventListener("submit",(event)=> {
+        event.preventDefault();
+    
+      
+      const name=document.getElementById("firstName").value;
+      const sur=document.getElementById("surname").value;
+      const day=Number(document.getElementById("day").value);
+      const mon=Number(document.getElementById("month").value);
+      const yr=Number(document.getElementById("birthYear").value);
+
+       const res=document.getElementById("result");
+       const first=`Hello ${name} ${sur}`;
+       const sec=`Your Zodiac sign ${zodiacSigns[mon-1]}`;
+       const third=compliments[day-1];
+       const index=Math.floor(Math.random()*10);
+       const forth=victimCardQuotes[index];
+
+       const fifth=lifeRecommendations[(name.length*sur.length*yr)%30];
+       const six=wealthPredictions[(day*mon*yr)%20];
+
+       res.innerText=`${first}  ${sec}  ${third}  ${forth} Our recommendation for you ${fifth} Your future prediction ${six}`;
+      })
+       </script>
+</body>
+</html>

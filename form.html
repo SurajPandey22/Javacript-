@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 320px;
+}
+
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #4CAF50;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+</style>
+<body>
+        <!-- <data value=""></data>iv.form-container
+          -->
+        <div class="form-container">
+            <h1>Student Registration</h1>
+            <form action="">
+                <label for="first">User Name:</label>
+                <input id="first" type="text" name="Name1" placeholder="Enter your name">
+
+                <label for="sec">User Name:</label>
+                <input id="sec" type="text" name="Name2" placeholder="Enter your name">
+
+                <label for="third">Age</label>
+                <input id="third" type="number" name="Name3" placeholder="Enter your name">
+
+                <button type="submit">Submit</button>
+
+            </form>
+        </div>
+
+        <script>
+                 
+                 const form=document.querySelector("form");
+
+                 form.addEventListener("submit",(event) =>{
+                    
+                    event.preventDefault();
+                    const data=new FormData(form);
+                    console.log(data);
+                    console.log(data.keys());
+
+                //     console.log(event.target.value);           // focus doesnot bubble
+                 })
+
+                
+        </script>
+</body>
+</html>

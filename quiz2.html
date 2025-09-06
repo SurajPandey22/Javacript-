@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <div class="container">
+        <h1>Quiz</h1>
+        <form action="">
+            <div class="question">
+
+            </div>
+        </form>
+       </div>
+
+       <script>
+                    
+        const questionBank = [
+  {
+    question: "Who has the most centuries in international cricket?",
+    options: ["Sachin Tendulkar", "Virat Kohli", "Rohit Sharma", "Surya"],
+    answer: "Sachin Tendulkar"
+  },
+  {
+    question: "Who is known as the 'God of Cricket'?",
+    options: ["Virat Kohli", "MS Dhoni", "Sachin Tendulkar", "Kapil Dev"],
+    answer: "Sachin Tendulkar"
+  },
+  {
+    question: "Who won the 2011 ICC Cricket World Cup as captain of India?",
+    options: ["Virat Kohli", "MS Dhoni", "Sourav Ganguly", "Kapil Dev"],
+    answer: "MS Dhoni"
+  },
+  {
+    question: "Which cricketer is called 'King Kohli'?",
+    options: ["Virat Kohli", "Rohit Sharma", "KL Rahul", "Yuvraj Singh"],
+    answer: "Virat Kohli"
+  },
+  {
+    question: "Who hit 6 sixes in an over against England in T20 World Cup 2007?",
+    options: ["MS Dhoni", "Virender Sehwag", "Yuvraj Singh", "Rohit Sharma"],
+    answer: "Yuvraj Singh"
+  },
+  {
+    question: "Who is the highest run-scorer in ODI cricket?",
+    options: ["Sachin Tendulkar", "Virat Kohli", "Ricky Ponting", "Kumar Sangakkara"],
+    answer: "Sachin Tendulkar"
+  },
+  {
+    question: "Who was the first Indian to score a triple century in Test cricket?",
+    options: ["Virender Sehwag", "Rahul Dravid", "Sunil Gavaskar", "Sachin Tendulkar"],
+    answer: "Virender Sehwag"
+  },
+  {
+    question: "Who is known as 'Captain Cool'?",
+    options: ["Sourav Ganguly", "MS Dhoni", "Virat Kohli", "Kapil Dev"],
+    answer: "MS Dhoni"
+  },
+  {
+    question: "Which country won the first-ever ICC Cricket World Cup (1975)?",
+    options: ["India", "Australia", "West Indies", "England"],
+    answer: "West Indies"
+  },
+  {
+    question: "Who is the highest wicket-taker in international cricket?",
+    options: ["Muttiah Muralitharan", "Shane Warne", "Anil Kumble", "Glenn McGrath"],
+    answer: "Muttiah Muralitharan"
+  },
+  {
+    question: "Which cricketer is called 'The Wall'?",
+    options: ["Rahul Dravid", "Sachin Tendulkar", "VVS Laxman", "Sourav Ganguly"],
+    answer: "Rahul Dravid"
+  },
+  {
+    question: "Who was the first Indian cricketer to win the Arjuna Award?",
+    options: ["Sunil Gavaskar", "Vinoo Mankad", "Kapil Dev", "Salim Durrani"],
+    answer: "Salim Durrani"
+  },
+  {
+    question: "Which Indian bowler took 10 wickets in a Test innings?",
+    options: ["Anil Kumble", "Kapil Dev", "Harbhajan Singh", "Jasprit Bumrah"],
+    answer: "Anil Kumble"
+  },
+  {
+    question: "Who is called 'Hitman' in cricket?",
+    options: ["Virat Kohli", "Rohit Sharma", "Shikhar Dhawan", "Hardik Pandya"],
+    answer: "Rohit Sharma"
+  },
+  {
+    question: "Who was India’s first Test captain?",
+    options: ["Kapil Dev", "CK Nayudu", "Lala Amarnath", "Vijay Hazare"],
+    answer: "CK Nayudu"
+  },
+  {
+    question: "Which Indian cricketer is nicknamed 'Dada'?",
+    options: ["Rahul Dravid", "Sourav Ganguly", "Virat Kohli", "MS Dhoni"],
+    answer: "Sourav Ganguly"
+  },
+  {
+    question: "Who bowled the last over in 2007 T20 World Cup Final?",
+    options: ["Irfan Pathan", "Harbhajan Singh", "Joginder Sharma", "Zaheer Khan"],
+    answer: "Joginder Sharma"
+  },
+  {
+    question: "Which cricketer has the fastest century in ODI cricket?",
+    options: ["AB de Villiers", "Chris Gayle", "Corey Anderson", "Shahid Afridi"],
+    answer: "AB de Villiers"
+  },
+  {
+    question: "Who was India’s coach when they won the 2011 World Cup?",
+    options: ["Ravi Shastri", "Gary Kirsten", "Anil Kumble", "John Wright"],
+    answer: "Gary Kirsten"
+  },
+  {
+    question: "Which bowler is known as 'Sultan of Swing'?",
+    options: ["Zaheer Khan", "Wasim Akram", "James Anderson", "Dale Steyn"],
+    answer: "Wasim Akram"
+  }
+];
+                                                                                  //store the question
+                                                                              //store option
+                                                                              //Answer
+
+
+          const org={
+           
+       }
+
+       function Random() {
+              
+               const ans=[];
+                
+            const data=new Set();
+
+            while(data.size!=5) {
+                 const index=  Math.floor(Math.random()*questionBank.length);
+                 data.add(questionBank[index]);
+
+            }
+            return [...data];
+       }
+
+            const problem=Random();
+
+            const form=document.querySelector('form');
+
+             
+           problem.forEach((obj,index)=>{
+                
+            const div_element= document.createElement("div");
+           div_element.className="question";
+              
+           org[`q${index+1}`]=obj['answer'];
+
+
+           const par=document.createElement("p");
+           par.textContent=`${index+1}. ${obj["question"]}`;
+            div_element.append(par);
+           obj['options'].forEach((data)=> {
+                
+            const label=document.createElement("label");
+            const input=document.createElement("input");
+            input.type="radio";
+            input.name=`q${index+1}`;
+            input.value=data;
+                
+                label.append(input);
+               label.append( document.createTextNode(data));
+               div_element.append(label);
+               div_element.append(document.createElement("br"));
+                
+           });
+               
+           form.append(div_element);
+        });
+          
+       const btn=document.createElement("button");
+       btn.type="submit";
+       btn.className="Submit";
+       btn.textContent="Submit";
+       
+       form.append(btn);
+
+       //check the sunmited form
+       const final=document.createElement("div");
+          form.append(final);
+       form.addEventListener("submit",(event)=> {
+              
+        event.preventDefault();
+
+        const data=new FormData(form);
+           let res=0;
+
+           for(let [key,value] of data.entries()) {
+                if(value==org[key]) {
+                    res++;
+                }
+           }
+        
+           final.innerHTML=`Result: ${res} out of 5 coorect`;
+    
+       })
+      
+       </script>
+</body>
+</html>

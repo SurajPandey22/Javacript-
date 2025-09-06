@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    /* Reset some defaults */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    }
+
+    .weather-container {
+      background: #ffffff;
+      padding: 30px 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+    }
+
+    .weather-container h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .weather-container input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .weather-container button {
+      padding: 10px 20px;
+      border: none;
+      background: #4facfe;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .weather-container button:hover {
+      background: #00c6ff;
+    }
+
+    .weather-info {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+<body>
+        <div class="weather-container">
+            <h1>Weather App</h1>
+
+            <input type="text " id="location" placeholder="Enter location">
+            <button>Get weather</button>
+            <div id="weatherinfo" class="weather-info"></div>
+        </div>
+
+        <script>
+            document.querySelector('button').addEventListener("click",(event)=>{
+                     
+                const val=document.getElementById("location").value;
+ 
+            const prom=fetch(`http://api.weatherapi.com/v1/current.json?key=5bdba58702294f0e829203723250409&q=${val}&aqi=yes`);
+                  
+            prom.then(resp=> resp.json()
+
+                ).then((data)=>{
+
+                    update(data);
+                })
+            // })
+
+            function update(data) {
+                  document.getElementById("weatherinfo").innerText=data.current.temp_c;
+            }
+
+            })
+        </script>
+</body>
+</html>

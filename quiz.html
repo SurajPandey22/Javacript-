@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+  
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: pink;
+    }
+    h1 {
+        text-align: center;
+    }
+    .container {
+        background-color: white;
+        width: 50vw;
+        height: 50vh;
+    }
+    button {
+        width: 50vw;
+        background-color: blueviolet;
+        cursor: pointer;
+        padding: 20px;
+        font-size: 20px;
+    }
+</style>
+<body>
+          
+    <div class="container">
+        <h1>Cricket Quiz</h1>
+        <form id="quizform" action="">
+            <div class="quest">
+                <p> 1. Who is the most centuries in internatinal cricket2</p>
+
+                
+                    
+                <label>
+                    <input type="radio" name="q1" value="Sachin Tendulkar"> Sachin Tendulkar
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q1" value="virat"> Virat Kohli
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q1" value="Rohit"> Rohit Sharma
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q1" value="Surya"> Surya
+                </label>
+                   
+                <p> 2. Who is most valuable cricketer</p>
+
+                
+                    
+                <label>
+                    <input type="radio" name="q2" value="Sachin Tendulkar"> Sachin Tendulkar
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q2" value="virat"> Virat Kohli
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q2" value="Rohit"> Rohit Sharma
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q2" value="Surya"> Surya
+                </label>
+            </div>
+            <button type="submit">Submit</button>
+            <div id="result"></div>
+        </form>
+        <!-- <button type="submit">Submit</button> -->
+    </div>
+             <!-- <div id="result"></div> -->
+    <script>
+           
+            const org={
+                q1:"Sachin Tendulkar",
+                q2:"virat"
+            }
+
+        const form=document.querySelector("form");
+        form.addEventListener("submit", (event)=> {
+                
+            // event.defaultPrevented();
+            event.preventDefault();
+            const data=new FormData(form);
+            // console.log(data);
+            console.log(data.entries());
+            const ans= Array.from(data.values());
+            console.log(ans);
+
+            let res=0;
+
+            
+
+            for(let [key,value] of data.entries()) {
+                if(value==org[key]) {
+                    res++;
+                }
+            }
+              const final=document.getElementById("result");
+              final.innerHTML=`<strong> Result: ${res} of 2 </strong>`;
+        })
+    </script>
+</body>
+</html>

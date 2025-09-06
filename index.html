@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+     
+<style>
+
+       .head {
+        background-color: white;
+       }
+       .first {
+        margin-left: 300PX;
+        
+       }
+      .sec {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        background-color: white;
+      }
+      .brand {
+        color: rgb(225, 46, 46);
+        margin-right: 50px;
+        font-size: 25px;
+        font-weight: bolder;
+      }
+
+      .searching {
+           width: 250px;
+           margin-right: 50PX;
+           position: relative;
+        bottom: 5px;
+
+      }
+
+      button {
+
+        height: 30px;
+        width: 100px;
+        position: relative;
+        bottom: 5px;
+        font-size: 15px;
+        background-color: white;
+        border: none;
+        color: rgb(136, 114, 114);
+        right: 10px;
+      }
+      
+     .din {
+          
+        position: relative;
+        bottom: 20px;
+        margin-left: 5px;
+        font-size: 20px;
+        color: grey;
+     }
+
+   .del {
+    margin-left: 70px;
+    margin-right: 70px;
+   }
+
+     .sec{
+        position: sticky;
+        top: 0;
+     }
+
+    .th {
+        height: 500px;
+    }
+
+    .dining {
+        margin-left: 290px;
+    }
+
+
+    body {
+        background-color:rgb(253, 243,243);
+    }
+    * {
+        margin: 0;
+    }
+    .Box {
+         display: inline-block;
+    }
+     
+  .card:hover {
+    background-color: white;
+    border-color: white;
+  }
+     .img {
+        width: auto;
+        height: 250px;
+        border-radius: 20px;
+     }
+     .full {
+        font-size: large;
+        font-weight: bold;
+     }
+     .rating {
+        background-color: rgb(19, 128, 0);
+        position: absolute;
+        right: 0;
+        height: 20px;
+        color: white;
+        padding: 2px;
+        border-radius: 7px;
+     }
+     .res_name {
+         position: relative;
+        
+         margin-bottom: 10px;
+         margin-top: 10px;
+     }
+     .card {
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: 15px solid  rgb(253, 243, 243);
+        border-radius: 20px;
+     }
+     .price {
+        position: absolute;
+        right: 0;
+     }
+     .food {
+        position: relative;
+         margin-bottom: 10px;
+         margin-top: 10px;
+         color: rgba(183, 142, 142, 0.908);
+         font-size: 15px;
+     
+     }
+     .food_name {
+        font-weight: -10;
+        
+     }
+     .dist {
+        position: absolute;
+        right: 0;
+     } 
+     .location {
+        position: relative;
+         margin-bottom: 10px;
+         margin-top: 10px;
+         color: rgba(192, 133, 133, 0.877);
+         font-size: 15px;
+     }
+     .dist {
+        color: black;
+        font-weight: bold;
+     }
+     .off {
+        position: absolute;
+        bottom: 10px;
+        /* background-color: rgb(rgb(32, 65, 211), rgb(70, 165, 70), rgb(108, 108, 166));
+         */
+         background-color: rgba(72, 79, 222, 0.748);
+         margin-left: 10px;
+         color: wheat;
+         font-size: 25px;
+
+     }
+     .image {
+        position: relative;
+     }
+</style>
+<body>
+
+    <header>
+          
+        <div class="head">
+        <div class="first">  
+           
+            <div class="brand Box">
+                <h1>Zomato</h1>
+            </div>
+            <div class="search Box">
+                <form action="">
+                    <input type="text" class="searching" placeholder="search for resturant">
+                </form>
+            </div>
+
+            <div class="sign Box">
+                <button>Sign Up</button>
+            </div>
+            <div class="log Box">
+                <button>Log in</button>
+            </div>
+        </div>
+
+        <div class="sec">
+                <div class="dining Box">
+                    <div class="im Box">
+                        <img src="../pic/Chef-restaurant-logo-illustrations-template-on-transparent-background-PNG.webp" alt="" height="70px" width="auto">
+                    </div>
+                    <div class="din Box">
+                        <h2>Dining</h2>
+                    </div>
+                </div>
+                <div class="del Box">
+                    <div class="im Box">
+                        <img src="../pic/images.jpeg" alt="" height="70px" width="auto">
+                    </div>
+                    <div class="din Box">
+                        <h2>Delivery</h2>
+                    </div>
+                </div>
+                <div class="night Box">
+                       
+                    <div class="im Box">
+                        <img src="../pic/images.png" alt="" height="70px" width="auto">
+                    </div>
+                    <div class="din Box">
+                        <h2>Night</h2>
+                    </div>
+
+                </div>
+
+        </div>
+                <div class="th">
+                    <h2>Collections</h2>
+                </div>
+        </div>
+    </header>
+    <main>
+    <div class="card">
+
+        <div class="image">
+            <img src="../pic/1.avif" alt="this is image" height="" width="" class="img">
+            <p class="off">Flat 20% off</p>
+        </div>
+
+        <div class="res_name ">
+            <div class="full Box">
+                <p>The Darzi Bar and the kitchen  </p></div>
+            <div class="rating Box">
+                <p>4.2*  </p> </div>
+        </div>
+
+        <div class="food">
+            <div class="food_name Box">
+               <p>North_Indian,Chinese</p>
+            </div>
+            <div class="price Box">
+                <p>$2800 for two</p>
+            </div>
+        </div>
+
+        <div class="location">
+            <div class="place Box">
+                <p>Middle circle, CP</p>
+            </div>
+            <div class="dist  Box">
+                <p>4.2km</p>
+            </div>
+        </div>
+    </div>
+
+        
+        <div class="card">
+
+        <div class="image">
+            <img src="../pic/2.avif" alt="this is image" height="" width="" class="img">
+            <p class="off">Flat 20% off</p>
+        </div>
+
+        <div class="res_name ">
+            <div class="full Box">
+                <p>The Darzi Bar and the kitchen  </p></div>
+            <div class="rating Box">
+                <p>4.2*  </p> </div>
+        </div>
+
+        <div class="food">
+            <div class="food_name Box">
+               <p>North_Indian,Chinese</p>
+            </div>
+            <div class="price Box">
+                <p>$2800 for two</p>
+            </div>
+        </div>
+
+        <div class="location">
+            <div class="place Box">
+                <p>Middle circle, CP</p>
+            </div>
+            <div class="dist  Box">
+                <p>4.2km</p>
+            </div>
+        </div>
+    </div>
+             
+
+           <div class="card">
+
+        <div class="image">
+            <img src="../pic/1.avif" alt="this is image" height="" width="" class="img">
+            <p class="off">Flat 20% off</p>
+        </div>
+
+        <div class="res_name ">
+            <div class="full Box">
+                <p>The Darzi Bar and the kitchen  </p></div>
+            <div class="rating Box">
+                <p>4.2*  </p> </div>
+        </div>
+
+        <div class="food">
+            <div class="food_name Box">
+               <p>North_Indian,Chinese</p>
+            </div>
+            <div class="price Box">
+                <p>$2800 for two</p>
+            </div>
+        </div>
+
+        <div class="location">
+            <div class="place Box">
+                <p>Middle circle, CP</p>
+            </div>
+            <div class="dist  Box">
+                <p>4.2km</p>
+            </div>
+        </div>
+    </div>
+    </main>
+              
+</body>
+</html>

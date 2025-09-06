@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    * {
+         margin: 0;
+    }
+   .logo {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(214, 42, 42);
+    padding: 1rem;
+    
+   }
+   .left {
+    color: white;
+   }
+      .but {
+        padding-top: .5rem;
+      }
+     .but button {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        font-size: 1rem;
+        background-color: rgb(214, 42, 42);
+        border: none;
+    color: white;
+    cursor: pointer;
+    /* padding-top: .4rem; */
+      }
+      .ce {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+      }
+      .txt {
+        width: 300px;
+        color: black;
+        padding-left:20px ;
+        border: 2px solid rgb(97, 93, 93);
+        border-radius: 15px;
+        font-size: 1rem;
+        margin-right: .5rem;
+        max-width: 60%;
+      }
+      .search {
+        background-color: rgb(173, 169, 169);
+        
+      }
+      .ce button {
+
+        width: 100px;
+        height: 30px;
+        font-size: 1rem;
+        border-radius: 10px;
+        color: white;
+        background-color: rgb(226, 43, 43);
+        cursor: pointer;
+      }
+      .hero {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-image: url(../pic/1.avif);
+      }
+      h2 {
+        color: white;
+        background-color: rgb(132, 46, 46);
+      }
+      .mov {
+        padding-bottom: 1rem;
+        padding-top: 1.5rem;
+      }
+      .now {
+
+        /* color: white; */
+        margin-bottom: 1rem;
+      }
+      .now button {
+        color: white;
+        font-size: 1rem;
+        background-color: black;
+        border-radius: 5px;
+              }
+
+    
+     .mover h2{
+        text-align: center;
+        background-color: white;
+        color: black;
+     }
+    .images {
+          
+        height: 300px;
+        width: auto;
+    }
+    .card {
+        border: .5rem solid gainsboro;
+        background-color: palevioletred;
+        margin-left: .5rem;
+        margin-right: .5rem;
+        /* overflow-x: scroll; */
+    }
+    .movie {
+        display: flex;
+        overflow-x: scroll;
+    }
+    h3 {
+        text-align: center;
+        background-color: palevioletred;
+    }
+    .bot {
+        text-align: center;
+        /* width: 80%; */
+        margin-top: 1rem;
+        height: 100px;
+    }
+    .bot>img {
+        height: 200px;
+        max-width: 80%;
+    }
+</style>
+<body>
+    
+    <header>
+    
+         <div class="head">
+
+            <div class="logo">
+                <div class="left">
+                    <h1>Book My Show</h1>
+                </div>
+                <div class="right">
+                     
+                    <div class="but">
+                        <button>Movies</button>
+                        <button>Event</button>
+                        <button>Sports</button>
+                        <button>More</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="search">
+
+                <div class="ce">
+
+                    <input type="text" placeholder="search for movies" class="txt">
+                    <button>Search</button>
+                </div>
+            </div>
+         </div>
+    </header>
+
+        <div class="hero">
+
+            <div class="mov">
+                <h2>Experience the Best Movies and Events</h2>
+            </div>
+            <div class="now">
+                  <button>Book Now</button>
+            </div>
+        </div>
+         
+        <div class="mover">
+
+            <h2>Popular</h2>
+        </div>
+
+        <div class="movie">
+
+            <div class="card">
+                <img src="../pic/download.jpeg" alt="" class="images">
+                <h3>Edge of Tomarrow</h3>
+            </div>
+           
+           <div class="card">
+                <img src="../pic/download.jpeg" alt="" class="images">
+                <h3>Edge of Tomarrow</h3>
+            </div>
+
+            <div class="card">
+                <img src="../pic/download.jpeg" alt="" class="images">
+                <h3>Edge of Tomarrow</h3>
+            </div>
+
+            <div class="card">
+                <img src="../pic/download.jpeg" alt="" class="images">
+                <h3>Edge of Tomarrow</h3>
+            </div>
+
+            <div class="card">
+                <img src="../pic/download.jpeg" alt="" class="images">
+                <h3>Edge of Tomarrow</h3>
+            </div>
+             
+        </div>
+
+        <div class="bot">
+            <img src="../pic/2.avif" alt="">
+        </div>
+</body>
+</html>

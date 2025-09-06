@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cont {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+  width: 400px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ffdd57;
+}
+
+.gen {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#quote {
+  font-size: 18px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+button {
+    
+    background-color: aqua;
+    border-radius: 10px;
+    /* padding-top: 10px;
+    mar */
+    margin-top: 5px;
+    font-size: larger;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    
+        <div class="cont">
+            <h1>Quote Generator</h1>
+            <div class="gen">
+                <p id="quote">Honesty</p>
+            </div>
+            <button>Generate_Quote</button>
+        </div>
+
+        <script>
+             
+             const quotes = [
+  "The best way to get started is to quit talking and begin doing.",
+  "Don’t let yesterday take up too much of today.",
+  "It’s not whether you get knocked down, it’s whether you get up.",
+  "If you are working on something exciting, it will keep you motivated.",
+  "Success doesn’t come overnight. Keep going.",
+  "Hard work beats talent when talent doesn’t work hard.",
+  "Dream bigger. Do bigger.",
+  "Don’t watch the clock; do what it does. Keep going.",
+  "Push yourself, because no one else is going to do it for you.",
+  "Great things never come from comfort zones.",
+  "Success is not in what you have, but who you are.",
+  "Sometimes later becomes never. Do it now.",
+  "Little things make big days.",
+  "Don’t stop when you’re tired. Stop when you’re done.",
+  "Wake up with determination. Go to bed with satisfaction.",
+  "Do something today that your future self will thank you for.",
+  "Doubt kills more dreams than failure ever will.",
+  "Discipline is the bridge between goals and accomplishment.",
+  "Your limitation—it’s only your imagination.",
+  "Work hard in silence, let success make the noise."
+];          
+
+function f() {
+const txt=document.getElementById("quote");
+txt.textContent=quotes[Math.floor(Math.random()*quotes.length)];
+}
+
+
+// setInterval(f,1000);
+
+const btn=document.querySelector("button");
+btn.addEventListener("click", f);
+
+
+const ob=document.getElementsByTagName("body");
+ob[0].style.backgroundColor = "red";
+
+          
+        </script>
+</body>
+</html>
